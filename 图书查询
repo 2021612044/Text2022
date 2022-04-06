@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+class Books {
+    static int n = 1;
+    int i = 0;
+    String[] name = new String[n];
+    double[] price = new double[n];
+    void setBooks(String name, double price){
+        this.name[i] = name;
+        this.price[i] = price;
+        i++;
+    }
+
+}
+public class Main {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        Books.n = in.nextInt();
+        Books book = new Books();
+        for (int i = 0; i < Books.n; i++) {
+            String a = in.next();
+            double b = in.nextDouble();
+            book.setBooks(a,b);
+        }
+        int l = in.nextInt();
+        System.out.printf("%s %d %.1f",book.name[l-1],l,book.price[l-1]);
+    }
+}
