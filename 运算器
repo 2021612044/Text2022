@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class New {
+    int n = 0;
+    int zero(int x){
+        return this.n = x;
+    }
+    int jia(int x){
+        return this.n += x;
+    }
+    int jian(int x){
+        return this.n -= x;
+    }
+    int chen(int x){
+        return this.n *= x;
+    }
+    int chu(int x){
+        return this.n /= x;
+    }
+}
+public class Main {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        New n1 = new New();
+        while (in.hasNext()) {
+            int a = in.nextInt();
+            int b = in.nextInt();
+            if (a == 0) {
+                System.out.println(n1.zero(b));
+            } else if (a == 1) {
+                System.out.println(n1.jia(b));
+            } else if (a == 2) {
+                System.out.println(n1.jian(b));
+            } else if (a == 3) {
+                System.out.println(n1.chen(b));
+            } else if (a == 4) {
+                System.out.println(n1.chu(b));
+            } else
+                break;
+        }
+    }
+}
