@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+class Users {
+    int n = 0;
+    String[] ID,Password,Email;
+
+    Users() {
+        ID = new String[3];
+        Password = new String[3];
+        Email = new String[3];
+    }
+
+    void setUsers(String a,String b,String c){
+        ID[n] = a;
+        Password[n] = b;
+        Email[n] = c;
+        n++;
+    }
+    String pd(String d,String e){
+        String a = "用户不存在";
+        for (int i = 0; i < 3; i++) {
+            if (d.equals(ID[i])) {
+                if (e.contains("@")) {
+                    for (int j = 0; j < 3; j++) {
+                        if (e.equals(Email[j])) {
+                            a = Password[j];
+                            break;
+                        }
+                    }
+                }
+                else{
+                    for (int j = 0; j < 3; j++) {
+                        if (e.equals(Password[j])) {
+                            a = "yes";
+                            break;
+                        }
+                        else{
+                            a = "no";
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        return a;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Users user = new Users();
+        for (int i = 0; i < 3; i++) {
+            String a = in.next();
+            String b = in.next();
+            String c = in.next();
+            user.setUsers(a,b,c);
+        }
+        String a = in.next();
+        String b = in.next();
+        System.out.print(user.pd(a,b));
+    }
+}
